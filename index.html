@@ -1,17 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Simple Text Submission</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Processor</title>
 </head>
 <body>
+<h1>Text Processor</h1>
+<form id="textForm">
+  <label for="inputText">Enter text:</label>
+  <input type="text" id="inputText" name="inputText" required>
+  <button type="submit your text">Submit</button>
+</form>
+<h2>Result:</h2>
+<p id="result"></p>
 
-  <h1>Submit Text</h1>
+<script>
+  const form = document.getElementById('textForm');
+  const result = document.getElementById('result');
 
-  <form>
-    <label for="inputText">Enter Text:</label><br>
-    <input type="text" id="inputText" name="inputText"><br><br>
-    <button type="submit">Submit</button>
-  </form>
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const inputText = document.getElementById('inputText').value;
 
+    try {
+      const response = await fetch('<API_GATEWAY_URL>', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ inputString: inputText }),
+      });
+
+      const data = await response.json();
+      result.textContent = data.reversedString || 'No response received!';
+    } catch (error) {
+      result.textContent = `Error: ${error.message}`;
+    }
+  });
+</script>
 </body>
 </html>
