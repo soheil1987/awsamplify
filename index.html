@@ -30,6 +30,10 @@
         body: JSON.stringify({ inputString: inputText }),
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
       result.textContent = data.reversedString || 'No response received!';
     } catch (error) {
