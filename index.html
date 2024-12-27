@@ -24,7 +24,7 @@
     const inputText = document.getElementById('inputText').value;
 
     try {
-      const response = await fetch('https://2w6it0xiw2.execute-api.us-east-1.amazonaws.com/prod',
+      const response = await fetch('https://2w6it0xiw2.execute-api.us-east-1.amazonaws.com/prod/order',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ input: inputText }),
@@ -35,6 +35,7 @@
       }
 
       const data = await response.json();
+      console.log(inputText);
       console.log(result);
       result.textContent = data.reversedString || 'No response received!';
     } catch (error) {
