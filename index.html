@@ -40,7 +40,7 @@
       const data = await response.json();
       console.log(inputText);
       console.log(result);
-      result.textContent = data.reversedString || 'No response received!';
+      result.textContent = data || 'No response received!';
     } catch (error) {
       result.textContent = `Erreeeor: ${error.message}`;
     }
