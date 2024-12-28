@@ -24,7 +24,7 @@
     const inputText = document.getElementById('inputText').value;
 
     try {
-      const response = await fetch('https://9t2aexqi8g.execute-api.us-east-1.amazonaws.com/prod/text',{
+      const response = await fetch('https://9t2aexqi8g.execute-api.us-east-1.amazonaws.com/prod',{
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
             'Access-Control-Allow-Headers' : '*',
