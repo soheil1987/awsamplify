@@ -30,7 +30,7 @@
             'Access-Control-Allow-Headers' : '*',
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'},
-        body: JSON.stringify({ input: inputText }),
+        body: JSON.stringify(JSON.stringify({ input: inputText })),
       });
 
       if (!response.ok) {
