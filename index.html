@@ -39,7 +39,7 @@
 
       const data = await response.json();
       console.log(inputText);
-      console.log(data);
+      console.log(JSON.stringify({ input: inputText }));
       result.textContent = data.inputText || 'No response received!';
     } catch (error) {
       result.textContent = `Erreeeor: ${error.message}`;
