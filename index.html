@@ -39,6 +39,8 @@
 
       const data = await response.json();
       console.log(result);
+      console.log(data);
+
       result.textContent = data.input || 'No response received!';
     } catch (error) {
       result.textContent = `Erreeeor: ${error.message}`;
